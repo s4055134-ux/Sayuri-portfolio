@@ -1,0 +1,1092 @@
+/* === RESET & BASE STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important; 
+    overflow-y: auto !important;
+    background-color: #FFF;
+    background-image: url('assets/homepage/texture 1.PNG'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Italianno', cursive;
+}
+
+.artistic-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1920px; 
+    margin: 0 auto;
+}
+
+.hamburger-menu-wrapper {
+    position: fixed;
+    top: 3vh;
+    right: 2vw; 
+    width: 2.5vw;        
+    min-width: 40px;     
+    height: 2vh;
+    min-height: 30px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-menu-wrapper:hover {
+    transform: scale(1.1);
+}
+
+/* --- 1. BURGER ICON (3 gạch) --- */
+.burger-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.burger-icon span {
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    background-color: #BE5985;
+    border-radius: 4px;
+}
+
+/* --- 2. SAYURI LOGO (Mới) --- */
+.sayuri-logo-hover {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 3vw;         
+    min-width: 45px;    
+    height: auto;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sayuri-logo-hover svg {
+    width: 100%;
+    height: auto;
+}
+
+/* --- HIỆU ỨNG HOVER (THE MAGIC) --- */
+.hamburger-menu-wrapper:hover .burger-icon {
+    opacity: 0;
+}
+
+.hamburger-menu-wrapper:hover .sayuri-logo-hover {
+    opacity: 1;
+}
+
+/* --- 4. Main Container & Layout --- */
+.about-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh; 
+    padding: 0;
+    /* [QUAN TRỌNG] Đổi lại thành HIDDEN để cắt phần thừa, không cho tràn xuống section dưới */
+    overflow: visible !important; 
+}
+
+.content-wrapper {
+    position: absolute;
+    top: 50vh; 
+    right: 5vw; 
+    width: 40vw; 
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* --- Title (GIỮ NGUYÊN KHÔNG ĐỤNG VÀO) --- */
+.title {
+    text-align: center;
+    font-family: 'Italianno', cursive;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    color: #43334C;
+    font-weight: 300; 
+    width: 100%;
+    line-height: 1.1;
+    margin-bottom: 1.5vh;
+    margin-top: 3vh;
+}
+
+/* --- Bio Text (CHỈNH SỬA CỠ CHỮ) --- */
+.bio-text {
+    font-family: 'Playwrite US Modern', sans-serif;
+    font-size: 1vw !important; 
+    line-height: 1.6;
+    color: #000000;
+    width: 100%;
+    text-align: left;
+}
+
+.bio-text p {
+    margin-bottom: 0;
+    font-size: inherit; 
+}
+
+.bio-text p:first-child {
+    margin-bottom: 4vh;
+    font-size: 1vw !important; 
+    font-weight: 600; 
+    display: block;
+}
+
+.portrait-container {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.portrait {
+    position: absolute;
+    object-fit: cover;
+    z-index: 10;
+    border-radius: 0;
+    will-change: transform; 
+}
+
+.img-small {
+    width: 25vw;
+    height: auto;
+    top: 12vh;
+    right: 8vw;
+}
+
+.img-large {
+    width: 28vw;
+    height: auto;
+    top: 50vh;
+    left: 9vw;
+}
+
+/* --- 7. Elements (Hoa & Bướm) - DEFAULT DESKTOP --- */
+.element {
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.element svg, .element img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.body-flower {
+    top: -5vw;
+    left: -2vw;
+    width: 70vw;
+    z-index: 1;
+    opacity: 1;
+}
+
+.flower-9, .flower-10, .flower-11, .flower-7 {
+    position: absolute !important; /* QUAN TRỌNG: Không có cái này thì Top/Left vô dụng */
+    display: flex !important;      
+    pointer-events: none;
+}
+
+.flower-3 { 
+    top: 0vh; left: 0vw; 
+    width: 20vw; 
+    transform: rotate(2deg); 
+}
+
+.flower-4 { 
+    top: 24vh; left: 0vw; 
+    width: 20vw;  
+}
+
+.flower-5 { 
+    top: 17vh; left: 0vw; 
+    width: 30vw; 
+}
+
+.flower-6 { 
+    top: 42.3vh; left: 15vw; 
+    width: 30vw; 
+    transform: rotate(2deg); 
+}
+
+.flower-8 { 
+    top: 3vh; left: 70vw; 
+    width: 24vw; 
+}
+
+/* 3. FIX FLOWER 11 (Cái bị mất) */
+.flower-11 {
+    opacity: 1 !important;         
+    visibility: visible !important;
+    top: 65vh !important;    
+    left: 36vw !important;
+    width: 15vw !important;
+    transform: rotate(-4deg);
+    z-index: 100 !important; 
+}
+
+.flower-7 { 
+    top: 76vh; right: 70vw; 
+    width: 30vw; 
+    z-index: 50 !important; 
+}
+
+.flower-9 { 
+    top: 25vh; right: 15vw; 
+    width: 30vw; 
+}
+
+.flower-10 { 
+    top: 0vh; right: 57vw; 
+    width: 18vw; 
+    transform: rotate(3deg); 
+}
+
+.flower-12 { display: none; }
+
+/* --- VỊ TRÍ BƯỚM (DESKTOP) --- */
+.butterfly-7  { top: 2vh; left: 20vw; width: 5vw; }
+.butterfly-8  { top: 13vh; right: 40vw; width: 12vw; }
+.butterfly-9  { top: 48vh; right: 5vw; width: 9vw; transform: rotate(9deg); }
+.butterfly-10 { top: 25vh; left: 36vw; width: 13vw; transform: rotate(-15deg); }
+
+/* FIX BUTTERFLY 11 & 12: Set cứng kích thước và vị trí */
+.butterfly-11 { 
+    display: flex !important; 
+    top: 51vh; 
+    right: 44vw; 
+    width: 12vw; 
+    z-index: 25;
+}
+
+.butterfly-12 { 
+    display: flex !important; 
+    top: 85vh; 
+    right: 2vw; 
+    width: 7vw; 
+    z-index: 25;
+}
+
+/* --- 8. RESPONSIVE FOR TABLET (UPDATED) --- */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        width: 45vw;
+        right: 3vw;
+    }
+    .hamburger-menu-wrapper {
+        right: 30px !important; 
+        top: 30px;              
+    }
+
+    .title {
+        font-size: 10vw;
+    }
+    
+   .bio-text {
+        font-size: 1.5vw !important; 
+        line-height: 1.6;
+    }
+
+    .bio-text p:first-child {
+        font-size: 1.5vw !important;
+        margin-bottom: 2vh;
+    }
+
+    .img-small {
+        width: 30vw;
+        top: 10vh;
+        right: 6vw;
+    }
+
+    .img-large {
+        width: 35vw;
+        top: 52vh;
+        left: 5vw;
+    }
+    
+    .flower-3 { transform: rotate(10deg) scale(1.0); top: 3vh }
+    .flower-4 { transform: scale(1.6) rotate(15deg); top: 22.5vh }
+    .flower-5 { transform: scale(1.5); top: 15vh; left: 0vh; }
+    .flower-6 { top: 48vh; left: 17vw; transform: rotate(2deg) scale(1.2); }
+    
+    .flower-10 { transform: rotate(3deg) scale(0.85); }    
+    .flower-9 { transform: scale(1.2); top: 20.5vh; right: 12vw; }
+    .flower-7 { transform: scale(1.2); }   
+    
+    .butterfly-8 { transform: rotate(3deg) scale(1.5); top: 15vh; right: 45vw; } 
+    .butterfly-9 { transform: rotate(9deg) scale(1.9); top: 40.5vh; right: 10vw; }
+    .butterfly-10 { transform: rotate(-20deg) scale(1.2); top: 34.5vh }
+    .butterfly-7 { top: 3vh; left: 18vw; width: 5vw;  }
+
+    .element {
+        display: flex !important;
+    }
+
+    /* --- HIỆN Flower 12 (Thay thế Flower 11) --- */
+    .flower-12 {
+        display: flex !important;
+        top: 6vh; 
+        left: 65.5vw; 
+        width: 16vw; 
+        transform: rotate(-4deg) scale(1.2);
+    }
+
+    /* --- ẨN TUYỆT ĐỐI Flower 11, Butterfly 11, Flower 8 VÀ BUTTERFLY 12 --- */
+    .flower-11, .butterfly-11, .flower-8, .butterfly-12 {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .wing {
+        transform-box: fill-box;
+    }
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    
+    body, html {
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh;
+    }
+
+   .hamburger-menu-wrapper { 
+        top: 25px; 
+        right: 25px; 
+        width: 35px; 
+        height: 25px; 
+    }
+    
+    .sayuri-logo-hover {
+        width: 40px;
+    }
+    
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: auto !important;
+        min-height: 100vh;
+        padding-top: 12vh;
+        padding-bottom: 10vh;
+    }
+
+    /* --- 1. XỬ LÝ CONTAINER BAO QUANH ẢNH --- */
+    .portrait-container {
+        display: contents !important;
+    }
+
+    /* --- 2. SẮP XẾP THỨ TỰ (ORDER) & VỊ TRÍ --- */
+
+    /* [VỊ TRÍ 1] ẢNH NHỎ NẰM TRÊN CÙNG */
+    .img-small {
+        position: relative !important;
+        order: 1; 
+        width: 50vw !important;
+        height: auto !important;
+        top: 3vh; right: -8vh; 
+        margin: 0 auto 4vh auto;
+        transform: none !important;
+        z-index: 10;
+        display: block
+    }
+
+    /* [VỊ TRÍ 2] KHỐI CHỮ NẰM GIỮA */
+    .content-wrapper {
+        position: relative !important;
+        order: 2;
+        width: 85vw !important;
+        top: auto !important; right: auto !important; left: auto !important;
+        margin: 0 auto 5vh auto;
+        transform: none !important;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 30;
+    }
+
+    /* [VỊ TRÍ 3] ẢNH LỚN NẰM DƯỚI CÙNG */
+    .img-large {
+        position: relative !important;
+        order: 3;
+        width: 80vw !important;
+        height: auto !important;
+        top: 4vh;
+        margin: 0 auto;
+        transform: none !important;
+        z-index: 10;
+        display: block !important;
+    }
+
+    .title {
+        font-size: 14vw !important;
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+        text-align: center;
+    }
+
+    .bio-text {
+        font-size: 2.5vw !important;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .bio-text p:first-child {
+        font-size: 2.5vw !important; 
+        margin-bottom: 2vh; 
+    }
+
+    /* --- 4. CÁC ELEMENT TRANG TRÍ (GIỮ NGUYÊN VỊ TRÍ TƯƠNG ĐỐI) --- */
+    
+    .body-flower, .flower-3, .flower-4, .flower-5, .flower-10, .flower-11, 
+    .butterfly-7, .butterfly-11, .butterfly-12, .butterfly-9 {
+        display: none !important;
+    }
+
+    /* Butterfly 10 (Góc trên trái - Lật ngược) */
+    .butterfly-10 {
+        display: block !important;
+        position: absolute;
+        top: 13vh;
+        left: 5vw;
+        width: 30vw;
+        transform: scaleX(-1) rotate(-12deg);
+        z-index: 25;
+    }
+
+    .flower-9 {
+        position: absolute;
+        top: 24vh; right: 23vw; width: 55vw; transform: rotate(5deg); z-index: 20;
+    }
+    .flower-8 {
+        display: block !important;
+        position: absolute;
+        top: 8vh; right: 20vw; width: 22vw; transform: rotate(-10deg); z-index: 19;
+    }
+
+    /* Flower 12 (Dây leo giữa ảnh nhỏ và chữ) */
+    .flower-12 {
+        display: block !important;
+        position: absolute;
+        top: 10vh; 
+        left: 72.5%; transform: translateX(-50%);
+        width: 40vw;
+        z-index: 15;
+    }
+
+    /* Butterfly 8 (Cạnh chữ About me) */
+    .butterfly-8 {
+        position: absolute;
+        top: 45vh;
+        right: 3vw; width: 25vw; 
+        transform: rotate(-70deg); 
+        z-index: 25;
+    }
+    
+    .flower-7 {
+        position: absolute;
+        top: auto; bottom: -3vh; left: 0vw; 
+        width: 60vw; 
+        transform: rotate(-10deg); 
+        z-index: 20;
+    }
+
+    .flower-6 {
+        top: 80vh;
+        left: 47vw; 
+        width: 60vw; 
+        transform: rotate(2deg); 
+    }
+    
+    .hamburger-menu {
+        position: fixed;
+        top: 3vh;
+        right: 3vw;
+    }
+}
+
+/* --- CURSOR FLOWER EFFECT --- */
+.cursor-flower-magical {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25px; 
+    height: auto;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform, opacity;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 0 5px rgba(236, 127, 169, 0.5));
+    opacity: 0;
+}
+
+/* Ẩn hiệu ứng trên Mobile để đỡ lag */
+@media (max-width: 768px) {
+    .cursor-flower-magical {
+        display: none !important;
+    }
+    .portrait-container {
+        perspective: none;
+    }
+    .portrait {
+        box-shadow: none;
+        transform: none !important; 
+    }
+}
+
+/* =========================================
+   FLOWER STYLES (ĐÃ FIX CHO MOBILE)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* CẤU HÌNH NÉT VẼ HOA TRÊN MOBILE */
+    .element[class*="flower-"] svg path,
+    .element[class*="flower-"] svg g path {
+        stroke-dasharray: none !important;
+        stroke-dashoffset: 0 !important;
+        opacity: 1 !important;
+        stroke: #A53860 !important; 
+        stroke-width: 0.6px !important; 
+        /* QUAN TRỌNG: Giữ nét mảnh đều nhau kể cả khi bạn scale hoa nhỏ lại */
+        vector-effect: non-scaling-stroke; 
+    }
+    
+    .element[class*="flower-"] {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* =========================================
+   SECRET GARDEN: FLASHLIGHT EFFECT
+   ========================================= */
+
+/* 1. Trạng thái mặc định của Bướm: Tàng hình */
+@media (min-width: 1025px) {
+    .element[class*="butterfly-"] {
+        opacity: 0; 
+        transition: opacity 0.3s ease-out; 
+        cursor: pointer; 
+        pointer-events: auto !important; 
+        display: flex; 
+        z-index: 35; 
+    }
+
+    .element[class*="butterfly-"].found {
+        opacity: 1 !important; 
+        filter: drop-shadow(0 0 10px rgba(255, 200, 220, 0.8));
+        animation: happyFlap 2s infinite ease-in-out; 
+    }
+}
+
+/* 2. LOGIC TABLET & MOBILE (Màn hình <= 1024px): Bướm hiện nguyên hình */
+@media (max-width: 1024px) {
+    .element[class*="butterfly-"] {
+        opacity: 1 !important; 
+        visibility: visible !important;
+        pointer-events: auto !important;
+        cursor: default;
+        display: flex; 
+    }
+    
+    .flashlight { 
+        display: none !important; 
+    }
+}
+
+/* 3. Hiệu ứng Đèn pin (Chỉ hiện khi JS kích hoạt trên Desktop) */
+.flashlight {
+    position: fixed;
+    top: 0; left: 0;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.1) 40%, 
+        transparent 70%
+    );
+    pointer-events: none; 
+    transform: translate(-50%, -50%);
+    z-index: 50; 
+    mix-blend-mode: overlay; 
+    opacity: 0; 
+    transition: opacity 0.5s;
+}
+
+@keyframes happyFlap {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
+}
+
+/* --- MOBILE: RESET VỀ BÌNH THƯỜNG --- */
+@media (max-width: 768px) {
+    .element[class*="butterfly-"] {
+        opacity: 1 !important; 
+        pointer-events: auto;
+    }
+    .flashlight { display: none; } 
+}
+
+/* ========================================= */
+/* [SECTION 2] - SKILLS & PASSION            */
+/* ========================================= */
+
+.section-2 {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    background-image: url('Assets/About/texture-2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFF;
+    margin-top: -2vh;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 2%);
+    overflow: hidden;
+    z-index: 15;
+}
+
+/* --- 1. GENERAL STYLES (ĐỊNH DẠNG CHUNG) --- */
+
+/* A. Khung cho Skills (Logo phần mềm) */
+.s2-polaroid {
+    position: absolute;
+    width: 12vw; 
+    height: auto;
+    z-index: 31;
+    transform-origin: center;
+}
+
+/* B. Khung cho Artworks (Tranh vẽ) - RIÊNG BIỆT */
+.s2-polaroid-art {
+    position: absolute;
+    width: 15vw; 
+    height: auto;
+    z-index: 4; 
+    transform-origin: center;
+}
+
+/* C. Logo phần mềm */
+.s2-logo {
+    position: absolute;
+    height: auto;
+    z-index: 6; 
+    pointer-events: none;
+    transform-origin: center;
+}
+
+/* D. Nội dung tranh vẽ */
+.s2-art-content {
+    position: absolute;
+    object-fit: cover;
+    z-index: 5; 
+    pointer-events: none;
+    filter: contrast(1.1) saturate(1.1);
+}
+
+/* --- 2. POSITIONING SKILLS (VỊ TRÍ TỪNG CẶP LOGO) --- */
+
+/* Cặp 1: Figma (Góc trên trái) */
+.p-figma { 
+    top: 10%; left: 5%; 
+    transform: rotate(4deg); 
+}
+.l-figma { 
+    top: 10%; left: 5.5%; width: 11vw;
+    transform: rotate(4deg); 
+}
+
+/* Cặp 2: VS Code (Kế bên Figma) */
+.p-vsc { 
+    top: 12%; left: 15%; 
+    transform: rotate(-4deg); 
+    z-index: 4; 
+}
+.l-vsc { 
+    top: 14%; left: 16.5%; width: 9vw;
+    transform: rotate(28deg); 
+    z-index: 6;
+}
+
+/* Cặp 3: Illustrator (Dưới Figma) */
+.p-ai { 
+    top: 28%; left: 8%; 
+    transform: rotate(-5deg); 
+}
+.l-ai { 
+    top: 30%; left:9.8%; width: 9vw;
+    transform: rotate(-5deg); 
+}
+
+/* Cặp 4: Photoshop (Dưới AI) */
+.p-ps { 
+    top: 47%; left: 4%;
+    transform: rotate(-12deg); 
+}
+.l-ps { 
+    top: 48%; left: 4.2%; width: 11vw;
+    transform: rotate(-2deg); 
+}
+
+/* Cặp 5: Blender (Dưới cùng trái) */
+.p-blender { 
+    top: 64%; left: 9%; 
+    transform: rotate(30deg); 
+}
+.l-blender { 
+    top: 61.5%; left: 8.2%; width: 14vw;
+    transform: rotate(-12deg); 
+}
+
+
+/* --- 3. POSITIONING ARTWORKS (VỊ TRÍ TỪNG CẶP TRANH) --- */
+
+/* Cặp 6: Artwork 1 (Giữa - Lệch Trái) */
+.p-art1 {
+    width: 15vw;
+    top: 50%; left: 32%;
+    transform: rotate(-4deg);
+}
+.i-art1 {
+    width: 13vw; 
+    top: 51.5%; left: 33%;
+    transform: rotate(-4deg);
+}
+
+/* Cặp 7: Artwork 2 (Dưới Cùng - Giữa) */
+.p-art2 {
+    width: 15vw; 
+    top: 57%; left: 55%;
+    transform: rotate(3deg);
+}
+.i-art2 {
+    width: 13vw;
+    top:  58.5%; left: 56%;
+    transform: rotate(3deg);
+}
+
+/* Cặp 8: Artwork 3 (Bên Phải - Cao) */
+.p-art3 {
+    width: 15vw;
+    top: 38%; right: 5%;
+    transform: rotate(8deg);
+}
+.i-art3 {
+    width: 13vw;
+    top: 39.8%; right: 6%;
+    transform: rotate(8deg);
+}
+
+.content-wrapper-2 {
+    position: absolute;
+    top: 6%; 
+    left: 50%;
+    width: 50vw; 
+    z-index: 20;
+}
+
+/* 2. Target trực tiếp vào thẻ P bên trong Section 2 */
+.section-2 .content-wrapper-2 p {
+    font-family: 'Playwrite US Modern', sans-serif;
+    color: #000 !important;
+    text-align: left;
+    font-size: 1vw !important; 
+    line-height: 1.6 !important;
+    margin-bottom: 2vh !important;
+}
+
+.section-2 .content-wrapper-2 p:first-child {
+    font-size: 1vw !important; 
+    font-weight: 400; 
+    margin-bottom: 2.5vh !important;
+}
+
+/* --- 5. DECORATION (HOA & BƯỚM) --- */
+
+/* Flower 14 (Góc Trái Dưới) */
+.flower-14 {
+    position: absolute;
+    bottom: 0%; left: 0%;
+    width: 30vw;
+    z-index: 30;
+    pointer-events: none;
+}
+
+/* Flower 13 (Góc Phải Dưới) */
+.flower-13 {
+    position: absolute;
+    bottom: -5%; right: 0%;
+    width: 28vw;
+    z-index: 30;
+    pointer-events: none;
+}
+
+.flower-15, .flower-16 {
+    display: none !important;
+}
+
+.butterfly-13 { top: 5%; left: 25%; width: 11vw; transform: rotate(20deg); }
+.butterfly-14 { top: 32%; left: 41%; width: 11vw; transform: rotate(-10deg); }
+.butterfly-15 { top: 32%; right: 16%; width: 9vw; transform: rotate(5deg); }
+.butterfly-16 { bottom: 20%; right: 5%; width: 8vw; transform: rotate(0deg); }
+.butterfly-17 { bottom: 11%; left: 21%; width: 8.5vw; transform: rotate(-10deg); }
+.butterfly-18 { bottom: 5%; left: 5%; width: 7vw; transform: rotate(-15deg); }
+.butterfly-19 { bottom: 3%; left: 42%; width: 10vw; transform: rotate(0deg); }
+.butterfly-20 { top: 30%; left: 27%; width: 10vw; transform: rotate(20deg); }
+.butterfly-21 { bottom: 8.5%; right: 14.5%; width: 12vw; transform: rotate(-10deg); }
+.butterfly-22 { bottom: 28%; left: 14%; width: 13vw; transform: rotate(-7deg); }
+.butterfly-23 { top: 45%; right: 24%; width: 9vw; transform: rotate(0deg); }
+.butterfly-24 { bottom: 0%; left: 26%; width: 9vw; transform: rotate(-5deg); }
+
+/* ================================================================= */
+/* [SECTION 2] TABLET RESPONSIVE - FULL ELEMENTS LIST                */
+/* Dành cho màn hình từ 769px đến 1024px (iPad, Tablet Android)      */
+/* ================================================================= */
+
+@media (max-width: 1024px) {
+
+    /* --- 1. KHỐI VĂN BẢN (TEXT) --- */
+    .section-2 .content-wrapper-2 {
+        width: 55vw;       
+        left: 70%;         
+        top: 1%;          
+        transform: translateX(-50%); 
+    }
+
+    .section-2 .content-wrapper-2 p,
+    .section-2 .content-wrapper-2 p:first-child {
+        font-size: 1.5vw !important; 
+        line-height: 1.6 !important;
+    }
+
+    /* --- 2. CÁC KHUNG KỸ NĂNG (POLAROID SKILLS) & LOGO --- */
+
+    /* FIGMA */
+    .p-figma { width: 20vw; top: 7%; left: 5%; }
+    .l-figma { width: 20vw; top: 7%; left: 5%; }
+
+    /* VS CODE */
+    .p-vsc { width: 20vw; top: 10%; left: 20%; }
+    .l-vsc { width: 16vw; top: 11%; left: 21.5%; }
+
+    /* ILLUSTRATOR (AI) */
+    .p-ai { width: 20vw; top: 28%; left: 8%; }
+    .l-ai { width: 14.8vw; top: 29.8%; left: 11%; }
+
+    /* PHOTOSHOP (PS) */
+    .p-ps { width: 20vw; top: 47%; left: 4%; }
+    .l-ps { width: 18vw; top: 47.5%; left: 4%; }
+
+    /* BLENDER */
+    .p-blender { width: 20vw; top: 64%; left: 9%; }
+    .l-blender { width: 23vw; top: 63%; left: 8%; }
+
+    /* --- 3. CÁC KHUNG TRANH VẼ (ARTWORKS) --- */
+    
+    /* ART 1 */
+    .p-art1 { width: 22vw; top: 50%; left: 30%; }
+    .i-art1 { width: 19vw; top: 51.8%; left: 31.5%; }
+
+    /* ART 2 */
+    .p-art2 { width: 22vw; top: 57%; left: 56%; }
+    .i-art2 { width: 19vw; top: 58.8%; left: 57.5%; }
+
+    /* ART 3 */
+    .p-art3 { width: 22vw; top: 38%; right: 1%; }
+    .i-art3 { width: 19vw; top: 39.5%; right: 2.5%; }
+
+    /* --- 4. HOA TRANG TRÍ (FLOWERS) --- */
+    .flower-14 { width: 45vw; bottom: 0%; left: -2%; }  
+    .flower-13 { width: 42vw; bottom: -3%; right: -2%; } 
+
+    /* --- 5. DANH SÁCH BƯỚM (BUTTERFLIES 13-24) --- */
+    
+    .butterfly-13 { transform: rotate(20deg) scale(1.0); top: 0vh; left: 20vw; }
+    .butterfly-14 { transform: rotate(-10deg) scale(1.3); top: 40vh; left: 45vw; }
+    .butterfly-15 { transform: rotate(5deg) scale(1.3); }
+    .butterfly-16 { transform: rotate(0deg) scale(1.3); }
+    .butterfly-17 { transform: rotate(-10deg) scale(1.6); bottom: 13.5vh; left: 28.5vw; }
+    .butterfly-18 { transform: rotate(-15deg) scale(1.3); bottom: 5vh; left: 8vw; }
+    .butterfly-19 { transform: rotate(0deg) scale(1.3); bottom: 10vh; left: 40vw; }
+    .butterfly-20 { transform: rotate(20deg) scale(1.5); top: 35vh; left: 29vw; }
+    .butterfly-21 { transform: rotate(-10deg) scale(1.3); bottom: 12vh; right: 18.5vw; }
+    .butterfly-22 { display: none !important; }    
+    .butterfly-23 { transform: rotate(0deg) scale(1.3); top: 48vh; right: 32vw; }
+    .butterfly-24 { transform: rotate(-5deg) scale(1.3); bottom: 3vh; left: 36vw; }
+}
+
+/* ================================================================= */
+/* [SECTION 2] MOBILE RESPONSIVE (DƯỚI 768PX)                        */
+/* ================================================================= */
+
+@media (max-width: 768px) {
+
+    .section-2 {
+        height: auto !important; 
+        min-height: 100vh;
+        padding-bottom: 15vh; 
+    }
+
+    /* --- 1. VĂN BẢN (TEXT) --- */
+   .section-2 .content-wrapper-2 {
+        width: 80vw;       
+        top: 5vh;          
+        left: 50%;         
+        transform: translateX(-50%); 
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        
+        z-index: 40;
+    }
+
+    .section-2 .content-wrapper-2 p,
+    .section-2 .content-wrapper-2 p:first-child {
+        font-size: 2.5vw !important; 
+        line-height: 1.6 !important;
+        text-align: left !important; /* QUAN TRỌNG: Căn lề trái */
+        width: 100%; 
+    }
+
+    /* --- 2. ẨN CÁC ELEMENT THỪA --- */
+    
+    .flower-13, .flower-14 { display: none !important; }
+    
+    .butterfly-13, .butterfly-16, .butterfly-17, .butterfly-20, 
+    .butterfly-21, .butterfly-22, .butterfly-24 { 
+        display: none !important; 
+    }
+
+    /* --- 3. HIỆN & CHỈNH VỊ TRÍ HOA MỚI (15, 16) --- */
+    
+    .flower-15 {
+        display: flex !important;
+        position: absolute;
+        bottom: 0%; left: -5%;
+        width: 50vw;
+        z-index: 50;
+    }
+
+    .flower-16 {
+        display: flex !important;
+        position: absolute;
+        bottom: -2%; right: -5%;
+        width: 48vw;
+        z-index: 30;
+    }
+
+    /* --- 4. SẮP XẾP LẠI ẢNH & KHUNG (ZIG-ZAG DỌC) --- */
+
+    .s2-polaroid, .s2-polaroid-art { width: 25vw; } 
+
+    /* Hàng 1 */
+    .p-figma { top: 34vh; left: 10%; transform: rotate(5deg); }
+    .l-figma { top: 34vh; left: 11%; width: 23vw; transform: rotate(5deg); }
+
+    .p-vsc   { top: 36vh; left: 31%; right: 10%; transform: rotate(-20deg); }
+    .l-vsc   { top: 38vh; left: 33.5%; right: 12%; width: 19vw; transform: rotate(9deg); }
+
+    /* Hàng 2 */
+    .p-ai    { top: 50vh; left: 15%; transform: rotate(-3deg); z-index: 33 !important; }
+    .l-ai    { top: 51vh; left: 18%; width: 20vw; transform: rotate(-3deg); z-index: 34 !important; }
+
+    .p-art1  { top: 30vh; left: auto; right: 15%; transform: rotate(4deg); }
+    .i-art1  { top: 31vh; left: auto; right: 16.5%; transform: rotate(4deg); width: 22vw; }
+
+    /* Hàng 3 */
+    .p-ps    { top: 63vh; left: 8%; transform: rotate(6deg); z-index: 31 !important; }
+    .l-ps    { top: 63vh; left: 8%; width: 25vw; transform: rotate(16deg); z-index: 35 !important; }
+
+    .p-art3  { top: 76vh; left: auto; right: 20%; transform: rotate(16deg); }
+    .i-art3  { top: 77vh; left: auto; right: 21.9%; transform: rotate(16deg); width: 21vw; }
+
+    /* Hàng 4 */
+    .p-blender { top: 75vh; left: 20%; transform: rotate(-10deg); z-index: 32 !important; }
+    .l-blender { top: 75vh; left: 19.5%; width: 25vw; transform: rotate(-50deg); z-index: 36 !important; }
+
+    .p-art2    { top: 55vh; left: auto; right: 30%; transform: rotate(5deg); }
+    .i-art2    { top: 56vh; left: auto; right: 31.5%; transform: rotate(5deg); width: 22vw; }
+
+    /* --- 5. VỊ TRÍ CÁC CON BƯỚM ĐƯỢC GIỮ LẠI --- */
+    
+    .butterfly-14 { 
+        top: 29vh; right: 55vw; left: auto;
+        width: 12.5vw; transform: rotate(15deg); 
+    }
+    
+    .butterfly-15 { 
+        top: 70vh; left: 45vw; 
+        width: 15vw; transform: rotate(2deg); 
+    }
+    
+    .butterfly-18 { 
+        top: 82vh; left: 8%; 
+        width: 16vw; transform: rotate(10deg); z-index: 50; 
+    }
+    
+    .butterfly-23 { 
+        top: 47vh; right: 14vw; 
+        width: 20vw; transform: rotate(16deg); 
+    }
+    
+    .butterfly-19 { 
+        top: 60vh; left: 70vw; 
+        width: 25vw; transform: rotate(4deg); 
+    }
+}
+
+.click-group {
+    cursor: pointer;
+}
+
+/* 2. Ẩn nội dung ảnh (Logo & Art) mặc định */
+/* Lưu ý: Không đụng vào .s2-polaroid (cái khung) để nó luôn hiện */
+.s2-logo, 
+.s2-art-content {
+    opacity: 0; 
+    transition: opacity 0.6s ease-in-out; 
+}
+
+/* 3. Class kích hoạt hiển thị */
+.click-group.revealed .s2-logo,
+.click-group.revealed .s2-art-content {
+    opacity: 1;
+}

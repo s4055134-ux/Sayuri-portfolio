@@ -1,0 +1,727 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden; 
+    font-family: 'Quantico', sans-serif; 
+}
+
+/* ===========================
+   SECTION 1 MAIN CONTAINER
+   =========================== */
+.showcase-s1 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('assets/showcase/background-1.png'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.hamburger-menu {
+    position: fixed;
+    top: 3vh;        
+    left: 2vw;       
+    right: auto;
+    width: 2.5vw;    
+    min-width: 40px; 
+    height: 2vh;     
+    min-height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 0.2rem;            
+    background-color: #ffffff; 
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover span {
+    background-color: #ffffff; 
+    transform: scaleX(1.1);
+}
+
+/* ===========================
+   CỘT TRÁI (LEFT COLUMN)
+   =========================== */
+.s1-left-col {
+    width: 50%; 
+    padding-left: 8vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10; 
+}
+
+/* --- Nhóm ảnh Poster và Bảng màu --- */
+.s1-visual-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; 
+    margin-bottom: 3vw; 
+}
+
+.s1-poster {
+    width: 22vw; 
+    height: auto;
+    box-shadow: 0 0 2vw rgba(100, 100, 255, 0.3); 
+}
+
+.s1-palette {
+    width: 4vw; 
+    margin-left: 1.5vw; 
+}
+
+/* --- Nhóm Text --- */
+.s1-text-group {
+    width: 38vw; 
+}
+
+.s1-title {
+    font-weight: 700;
+    font-size: 2.8vw; 
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 1.5vw; 
+    text-transform: uppercase;
+}
+
+.s1-desc {
+    font-weight: 400;
+    font-size: 1.2vw; 
+    color: #E0E0E0; 
+    line-height: 1.6;
+}
+
+.s1-right-col {
+    width: 50%; 
+    height: 100%;
+    position: relative; 
+}
+
+.s3d-hands-top {
+    position: absolute;
+    top: 5vh;   
+    right: 8vw; 
+    width: 35vw; 
+    opacity: 0.9;
+    z-index: 5;
+    animation: puppetFloat 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+.s3d-main-char {
+    position: absolute;
+    bottom: 0;     
+    right: 0vw;   
+    width: 55vw;   
+    z-index: 6;
+}
+
+@keyframes puppetFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-1.5vw); 
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* ===========================
+   RESPONSIVE TABLET (Max-width: 1024px)
+   =========================== */
+@media screen and (max-width: 1024px) {
+    
+    .showcase-s1 {
+        flex-direction: column; 
+        height: auto;          
+        min-height: 100vh;    
+        padding-top: 10vh;     
+        padding-bottom: 5vh;   
+    }
+
+    .s1-left-col {
+        width: 100%;
+        padding-left: 5vw;  
+        padding-right: 5vw;
+        z-index: 20;        
+    }
+
+    .s1-poster {
+        width: 35vw;
+    }
+
+    .s1-palette {
+        width: 6vw;
+        margin-left: 2vw;
+    }
+
+    .s1-text-group {
+        width: 44vw; 
+    }
+
+    .s1-title {
+        font-size: 2vw; 
+        margin-top: 2vw;
+    }
+
+    .s1-desc {
+        font-size: 2.2vw; 
+    }
+    
+    .s1-right-col {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; 
+        z-index: 1; 
+    }
+
+    .s3d-hands-top {
+        width: 60vw; 
+        top: 25vh;
+        right: -3vw;
+        opacity: 0.8; 
+    }
+    .s3d-main-char {
+        width: 65vw;
+        right: -5vw;
+        bottom: 0;
+        opacity: 1; 
+    }
+}
+
+/* ===========================
+   RESPONSIVE MOBILE (Max-width: 768px)
+   =========================== */
+@media screen and (max-width: 768px) {
+
+   .showcase-s1 {
+        background-image: none;
+        background: radial-gradient(circle at 50% 40%, #523fe3 0%, #201a60 50%, #1a1635 100%);
+        flex-direction: column;    
+        padding-top: 15vh;         
+        justify-content: flex-start;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .s1-left-col {
+        width: 100%;
+        padding-left: 8vw;
+        padding-right: 8vw; 
+        align-items: flex-start;
+    }
+
+    .s1-visual-group {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-end; 
+        margin-bottom: 5vh;    
+    }
+
+    .s1-poster {
+        width: 55vw; 
+    }
+
+    .s1-palette {
+        width: 10vw;
+        margin-left: 3vw;
+    }
+
+    .s1-text-group {
+        width: 100%; 
+    }
+
+    .s1-title {
+        font-size: 5.5vw; 
+        margin-bottom: 3vh;
+        line-height: 1.3;
+    }
+
+    .s1-desc {
+        font-size: 3.5vw; 
+        line-height: 1.6;
+        text-align: left; 
+    }
+
+    .s1-right-col {
+        display: none;
+    }
+}
+
+/* ===========================
+   SECTION 2 STYLING (NEW)
+   =========================== */
+.showcase-s2 {
+    width: 100vw;
+    height: 100vh;
+    background-color: #051b36; 
+    background-image: url('assets/showcase/background-2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- CỘT TRÁI S2 --- */
+.s2-left-col {
+    width: 55%; 
+    padding-left: 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Nhóm ảnh: Palette trái - Poster phải */
+.s2-visual-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    margin-bottom: 3vw;
+}
+
+.s2-palette {
+    width: 3.5vw;
+    margin-right: 1.5vw; 
+    height: auto;
+}
+
+.s2-poster {
+    width: 28vw; 
+    height: auto;
+    box-shadow: 0 0 2vw rgba(40, 100, 255, 0.2);
+}
+
+/* Nhóm Text S2 */
+.s2-text-group {
+    width: 40vw; 
+    color: #FFFFFF;
+    text-align: left; 
+}
+
+.s2-title {
+    font-family: 'Cormorant Garamond';
+    font-weight: 700; 
+    font-size: 2.5vw; 
+    line-height: 1.2;
+    margin-bottom: 1.5vw;
+}
+
+.s2-desc {
+    font-family: 'Cormorant Garamond', serif;   
+    font-weight: 200; 
+    font-size: 1.4vw; 
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* --- CỘT PHẢI S2 (Element cô gái) --- */
+.s2-right-col {
+    width: 45%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.s2-element-girl {
+    position: absolute;
+    right: 5vw; 
+    width: 50vw; 
+    height: auto;
+    filter: drop-shadow(0 0 1.5vw rgba(255, 255, 255, 0.3)); 
+    animation: floatGirl 6s ease-in-out infinite; 
+}
+
+@keyframes floatGirl {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-1.5vw) rotate(2deg); 
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* ===========================
+   RESPONSIVE TABLET SECTION 2 (Max-width: 1024px)
+   =========================== */
+@media screen and (max-width: 1024px) {
+
+    .showcase-s2 {
+        flex-direction: column; 
+        height: auto;
+        min-height: 100vh;
+        padding-top: 10vh;
+        padding-bottom: 5vh;
+    }
+
+    .s2-left-col {
+        width: 100%;
+        padding-left: 8vw; 
+        padding-right: 8vw;
+        z-index: 20; 
+        justify-content: flex-start;
+    }
+
+    .s2-visual-group {
+        width: 100%;
+        margin-bottom: 4vw;
+    }
+
+    .s2-palette {
+        width: 7vw;
+        margin-right: 2.5vw;
+    }
+
+    .s2-poster {
+        width: 45vw; 
+    }
+
+    .s2-text-group {
+        width: 50vw; 
+    }
+
+    .s2-title {
+        font-size: 5vw; 
+        margin-bottom: 2vw;
+    }
+
+    .s2-desc {
+        font-size: 2.2vw; 
+        line-height: 1.6;
+    }
+    
+    .s2-right-col {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; 
+        z-index: 5; 
+    }
+
+    .s2-element-girl {
+        position: absolute;
+        width: 55vw;   
+        right: -5vw;   
+        bottom: 5vh;   
+        top: auto;     
+        opacity: 1;    
+        will-change: transform;
+    }
+}
+
+/* ===========================
+   RESPONSIVE MOBILE SECTION 2 (Max-width: 768px)
+   =========================== */
+@media screen and (max-width: 768px) {
+
+    .showcase-s2 {
+        background-image: url('assets/showcase/background-2.png');
+        background-size: cover;
+        background-position: center; 
+        
+        flex-direction: column;    
+        padding-top: 15vh;         
+        justify-content: flex-start;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .s2-left-col {
+        width: 100%;
+        padding-left: 8vw;
+        padding-right: 8vw; 
+        align-items: flex-start;
+    }
+
+    .s2-visual-group {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center; 
+        margin-bottom: 5vh;    
+    }
+
+    .s2-poster {
+        width: 70vw; 
+    }
+
+    .s2-palette {
+        width: 10vw; 
+        margin-right: 3vw; 
+    }
+
+    .s2-text-group {
+        width: 110%; 
+    }
+
+    .s2-title {
+        font-size: 7vw; 
+        margin-bottom: 2vh;
+        line-height: 1.1;
+    }
+
+    .s2-desc {
+        font-size: 3.5vw; 
+        line-height: 1.5;
+    }
+
+    .s2-right-col {
+        display: none;
+    }
+}
+
+/* ===========================
+   SECTION 3: DONG HO FOLK ART
+   =========================== */
+.showcase-s3 {
+    width: 100vw;
+    height: 100vh;
+    background-color: #551209; 
+    
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    position: relative;
+    padding-left: 8vw;   
+    overflow: hidden;
+}
+
+/* --- CỘT TRÁI: Dải màu --- */
+.s3-palette-col {
+    display: flex;
+    flex-direction: column; 
+    gap: 1vw; 
+    margin-right: 4vw; 
+}
+
+.s3-color-block {
+    width: 4.5vw; 
+    height: auto;
+    display: block;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- CỘT PHẢI: Posters & Text --- */
+.s3-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70vw; 
+}
+
+/* Hàng chứa 2 Poster */
+.s3-posters-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw; 
+    margin-bottom: 3vw; 
+}
+
+.s3-poster {
+    width: 35vw; 
+    height: auto;
+    border: 1px solid rgba(255,255,255,0.1); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Nhóm Chữ */
+.s3-text-group {
+    width: 100%;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.s3-title {
+    font-family: 'Lost Vietnam', sans-serif;
+    font-weight: 400; 
+    font-size: 2.5vw; 
+    line-height: 1.5;
+    margin-bottom: 1.5vw; 
+}
+
+.s3-desc {
+    font-family: 'Be Vietnam', sans-serif;
+    font-weight: 400; 
+    font-size: 1.4vw; 
+    line-height: 1.6;
+    opacity: 0.95;
+    max-width: 60vw; 
+}
+
+/* ===========================
+   RESPONSIVE TABLET SECTION 3 (Max-width: 1024px)
+   =========================== */
+@media screen and (max-width: 1024px) {
+
+    .showcase-s3 {
+        /* QUAN TRỌNG: Giữ nguyên flex-direction ROW giống Desktop */
+        flex-direction: row; 
+        align-items: center;
+        height: auto;
+        min-height: 100vh;
+        padding-left: 5vw; 
+        padding-right: 5vw;
+    }
+
+    .s3-palette-col {
+        flex-direction: column; 
+        margin-right: 4vw;      
+        gap: 2vw;
+    }
+
+    .s3-color-block {
+        width: 7vw; 
+    }
+
+    .s3-content-col {
+        width: 80%; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .s3-posters-row {
+        gap: 3vw;
+        margin-bottom: 3vh;
+    }
+
+    .s3-poster {
+        width: 35vw; 
+    }
+
+    .s3-text-group {
+        width: 100%;
+    }
+
+    .s3-title {
+        font-size: 4.5vw; 
+        margin-bottom: 1.5vh;
+    }
+
+    .s3-desc {
+        font-size: 2vw;   
+        max-width: 100%;  
+        line-height: 1.5;
+    }
+}
+
+/* ===========================
+   RESPONSIVE MOBILE SECTION 3 (Max-width: 768px)
+   =========================== */
+@media screen and (max-width: 768px) {
+
+    .showcase-s3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-auto-rows: auto; 
+        gap: 4vw;
+        padding: 80px 5vw 5vh 5vw;
+        height: auto;
+        min-height: 100vh;
+        flex-direction: unset; 
+        align-items: stretch; /* QUAN TRỌNG: Bắt buộc các phần tử phải dãn bằng nhau trong 1 hàng */
+    }
+
+    .s3-palette-col,
+    .s3-content-col,
+    .s3-posters-row {
+        display: contents; 
+    }
+
+    /* --- CHỈNH SIZE ẢNH MÀU --- */
+    /* SỬA QUAN TRỌNG Ở ĐÂY */
+    .s3-palette-col .s3-color-block {
+        width: 10vw;     
+        object-fit: cover; 
+        display: block; 
+    }
+
+    /* === HÀNG 1: Poster 3 (Trái) & COLOR 3 (Phải) === */
+    
+    .s3-posters-row .s3-poster:nth-child(1) {
+        grid-column: 1 / span 3; 
+        grid-row: 1;
+        width: 100%;
+        height: auto; 
+        display: block;
+    }
+
+    /* Color 3: BỎ align-self: center ĐI */
+    .s3-palette-col .s3-color-block:nth-child(1) {
+        grid-column: 4 / span 1;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    /* === HÀNG 2: COLOR 4 (Trái) & Poster 4 (Phải) === */
+
+    /* Color 4: BỎ align-self: center ĐI */
+    .s3-palette-col .s3-color-block:nth-child(2) {
+        grid-column: 1 / span 1; 
+        grid-row: 2;
+        align-self: center; 
+        justify-self: end; /* QUAN TRỌNG: Đẩy cục màu sang hết lề phải của cột -> Dính vào Poster */
+    }
+
+    .s3-posters-row .s3-poster:nth-child(2) {
+        grid-column: 2 / span 3;
+        grid-row: 2;
+        width: 100%;
+        display: block;
+    }
+
+    /* --- HÀNG 3: Nội dung chữ --- */
+    .s3-text-group {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        width: 100%;
+        margin-top: 2vh;
+    }
+
+    .s3-title {
+        font-size: 8vw; 
+        margin-bottom: 2vh;
+    }
+
+    .s3-desc {
+        font-size: 3.8vw;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+}

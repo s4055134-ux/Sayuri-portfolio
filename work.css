@@ -1,0 +1,297 @@
+/* ================================================= */
+/* 1. RESET & NỀN TẢNG                               */
+/* ================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    background-color: #FFF;
+    font-family: 'Italianno', cursive;
+    overflow: hidden; 
+}
+
+.work-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* --- ĐỊNH VỊ SECTION XẾP CHỒNG --- */
+.section-1, .section-2, .section-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    will-change: opacity; 
+}
+
+.section-1 { background-image: url('assets/work/pink/texture 1.PNG'); z-index: 1; display: block; opacity: 1; }
+.section-2 { background-image: url('assets/work/purple/texture-pp.png'); z-index: 1; display: none; opacity: 0; }
+.section-3 { background-image: url('assets/work/red/texture-red.png'); z-index: 1; display: none; opacity: 0; }
+
+.element {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    filter: drop-shadow(2px 4px 8px rgba(162, 89, 117, 0.2));
+}
+
+/* ================================================= */
+/* 2. HIỆU ỨNG CHỮ CHẠY NGANG (MARQUEE)              */
+/* ================================================= */
+.container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+}
+
+.marquee-content {
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
+.marquee-content span {
+    font-family: 'Italiana';
+    font-size: 120px;
+    opacity: 0.5;
+    margin: -14px 0;
+    display: inline-block;
+}
+
+.top .marquee-content {
+    animation: marquee-left-to-right 60s linear infinite;
+}
+
+.bottom .marquee-content {
+    animation: marquee-right-to-left 60s linear infinite;
+}
+
+@keyframes marquee-right-to-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-left-to-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
+.section-1 .marquee-content span { color: #EC7FA9; }
+.section-2 .marquee-content span { color: #9D8EC1; }
+.section-3 .marquee-content span { color: #FF4D4D; }
+
+/* ================================================= */
+/* 3. FLIP CARD TRUNG TÂM (CHỈNH HƯỚNG LẬT PHẢI)    */
+/* ================================================= */
+.main-flip-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24vw;
+    height: 30vw; 
+    perspective: 1500px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* FIX: Thêm z-index để đảm bảo mặt nào ra mặt đó rõ ràng */
+    transform-style: preserve-3d; 
+}
+
+/* Đổi thành -180deg để mặt sau khớp với cú lật từ bên phải qua */
+.flip-card-back { 
+    transform: rotateY(-180deg); 
+}
+
+/* --- FIX LỖI BƯỚM HIỆN MẶT SAU --- */
+/* Thêm backface-visibility vào chính element con để nó tự ẩn khi quay lưng */
+.w-rect-19-fix { 
+    width: 24vw; 
+    height: auto; 
+    position: absolute; 
+    backface-visibility: hidden;         /* <--- FIX */
+    -webkit-backface-visibility: hidden; /* <--- FIX */
+}
+
+.w-butterfly-3-fix { 
+    width: 20vw; 
+    height: auto; 
+    position: relative; 
+    z-index: 2; 
+    backface-visibility: hidden;         /* <--- FIX */
+    -webkit-backface-visibility: hidden; /* <--- FIX */
+}
+
+.graphic-text {
+    position: relative;
+    z-index: 2;
+    font-family: 'Italiana';
+    font-size: 64px;
+    opacity: 1;
+    text-align: center;
+    white-space: nowrap;
+    /* Đảm bảo chữ mặt sau cũng không bị lỗi */
+    backface-visibility: hidden; 
+    -webkit-backface-visibility: hidden;
+}
+
+.section-1 .graphic-text { color: #A53860; }
+.section-2 .graphic-text { color: #6B559C; }
+.section-3 .graphic-text { color: #ad2424; }
+
+/* ================================================= */
+/* 4. VỊ TRÍ DESKTOP & BUTTERFLY ĐIỀU HƯỚNG          */
+/* ================================================= */
+.w-flower-1 { top: 0%; left: 0%; width: 20vw; z-index: 5; }
+.w-flower-2 { bottom: 30%; right: 0%; width: 12vw; z-index: 5; }
+.w-flower-4 { bottom: 0%; right: 0%; width: 25vw; z-index: 5; }
+
+.w-butterfly-1 { top: 15%; left: 5%; width: 15vw; transform: rotate(-1deg); z-index: 10; }
+.w-butterfly-2 { bottom: 7%; right: 5%; width: 20vw; transform: rotate(-10deg); z-index: 10; }
+
+.w-butterfly-4, .w-butterfly-5 { 
+    width: 5vw; 
+    top: 50%; 
+    z-index: 999; 
+    pointer-events: auto !important; 
+    cursor: pointer; 
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+}
+.w-butterfly-4 { right: 25%; }
+.w-butterfly-5 { left: 31%; }
+
+@media (hover: hover) {
+    .w-butterfly-4:hover, .w-butterfly-5:hover {
+        transform: translate(-50%, -50%) scale(1.2) !important;
+        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9)) brightness(1.1);
+    }
+}
+
+.w-butterfly-4:active, .w-butterfly-5:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* ================================================= */
+/* 5. HAMBURGER MENU                                 */
+/* ================================================= */
+.hamburger-menu-wrapper {
+    position: absolute; top: 3vh; right: 2vw; 
+    width: 2.5vw; min-width: 40px; height: 2vh; min-height: 30px;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 100; text-decoration: none;
+}
+.burger-icon { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.burger-icon span { display: block; width: 100%; height: 0.2rem; border-radius: 4px; }
+.section-1 .burger-icon span { background-color: #BE5985; }
+.section-2 .burger-icon span { background-color: #6B559C; }
+.section-3 .burger-icon span { background-color: #B30000; }
+
+.sayuri-logo-hover {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 180%; height: 180%; opacity: 0; pointer-events: none;
+    transition: all 0.3s ease-in-out; display: flex; justify-content: center; align-items: center;
+}
+.sayuri-logo-hover img { width: 100%; height: 100%; object-fit: contain; }
+.hamburger-menu-wrapper:hover .burger-icon { opacity: 0; }
+.hamburger-menu-wrapper:hover .sayuri-logo-hover { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+
+/* ================================================= */
+/* 6. RESPONSIVE TABLET (1024PX)                     */
+/* ================================================= */
+@media (max-width: 1024px) {
+    .main-flip-card { width: 45vw; height: 45vw; }
+    .w-rect-19-fix { width: 45vw; }
+    .w-butterfly-3-fix { width: 30vw; }
+    .w-flower-1 { width: 30vw; }
+    .w-flower-2 { width: 20vw; bottom: 20%; }
+    .w-butterfly-1, .w-butterfly-2 { width: 20vw; }
+    .w-butterfly-4 { width: 7vw; right: 11%; transform: translate(-50%, -50%); }
+    .w-butterfly-5 { width: 7vw; left: 19%; transform: translate(-50%, -50%); }
+    .marquee-content span { font-size: 80px; margin: 0; }
+    .graphic-text { font-size: 48px; }
+}
+
+/* ================================================= */
+/* 7. RESPONSIVE MOBILE (768PX)                      */
+/* ================================================= */
+@media (max-width: 768px) {
+    .w-butterfly-4:hover, .w-butterfly-5:hover {
+        transform: translate(-50%, -50%) scale(1) !important;
+        filter: none !important;
+    }
+    .hamburger-menu-wrapper { top: 20px; right: 20px; width: 35px; height: 25px; }
+    .main-flip-card { width: 60vw; height: 60vw; }
+    .w-rect-19-fix { width: 55vw; }
+    .w-butterfly-3-fix { width: 50vw; }
+    .marquee-content span { font-size: 15vw; }
+    .graphic-text { font-size: 10vw; }
+    .w-flower-1 { width: 35vw; top: 0%; left: 0%; }
+    .w-flower-2 { width: 25vw; bottom: 15%; right: -5%; }
+    .w-flower-4 { width: 40vw; bottom: 0%; right: 0%; }
+    .w-butterfly-1, .w-butterfly-2 { display: none !important; }
+    .w-butterfly-4 { width: 12vw; right: -2%; transform: translate(-50%, -50%); }
+    .w-butterfly-5 { width: 12vw; left: 10%; transform: translate(-50%, -50%); }
+    .cursor-flower-magical {
+        display: none !important;
+    }
+}
+
+.cursor-flower-magical {
+    position: fixed;
+    top: 0; left: 0;
+    width: 50px; 
+    height: auto;
+    pointer-events: none;
+    z-index: 9999; 
+    will-change: transform, opacity;
+    mix-blend-mode: multiply; 
+    filter: drop-shadow(0 0 8px rgba(236, 127, 169, 0.3));
+    opacity: 0.8;
+}

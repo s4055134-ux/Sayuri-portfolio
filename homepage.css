@@ -1,0 +1,421 @@
+/* === RESET & BASE STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    background-color: #FFF;
+    background-image: url('assets/homepage/texture 1.PNG'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Italianno', cursive;
+}
+
+.artistic-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1920px; 
+    margin: 0 auto;
+}
+
+/* [BASE SHADOW] */
+.element {
+    position: absolute;
+    display: block;
+    pointer-events: none; 
+    object-fit: contain;
+    filter: drop-shadow(2px 4px 8px rgba(162, 89, 117, 0.2));
+}
+
+/* 1. FLOWERS */
+.flower-2 {
+    top: 3%;
+    left: 5%;
+    width: 30%;
+    z-index: 2;
+    filter: drop-shadow(0px 10px 20px rgba(142, 74, 104, 0.15)); 
+}
+
+.flower-1 {
+    bottom: 0%;
+    left: 6%;
+    height: 80%;
+    width: auto;
+    z-index: 1;
+    filter: drop-shadow(0px 5px 15px rgba(142, 74, 104, 0.1)); 
+}
+
+/* ========================================================
+   2. BUTTERFLIES (POSITIONING & STATIC ROTATION)
+   ======================================================== */
+.butterfly-1 {
+    bottom: 18%; left: 3.6%; width: 9%; z-index: 3;
+    transform: rotate(-10deg);
+    filter: drop-shadow(10px 20px 10px rgba(142, 74, 104, 0.2));
+}
+
+.butterfly-2 {
+    bottom: 12%; left: 7.5%; width: 18%; z-index: 3;
+    transform: rotate(-9deg);
+    filter: drop-shadow(15px 25px 15px rgba(142, 74, 104, 0.15)); 
+}
+
+.butterfly-3 {
+    bottom: 10%; left: 30%; width: 12%; z-index: 3;
+    filter: drop-shadow(10px 20px 10px rgba(142, 74, 104, 0.2));
+}
+
+.butterfly-4 { 
+    top: 30%; left: 24%; width: 13%; z-index: 3;
+    filter: drop-shadow(20px 30px 20px rgba(142, 74, 104, 0.25)); 
+}
+
+.butterfly-5 {
+    top: 10%; left: 33%; width: 11%; z-index: 2;
+    filter: drop-shadow(10px 15px 10px rgba(142, 74, 104, 0.2));
+}
+
+.butterfly-6 {
+    bottom: 15%; right: 5%; width: 12%; z-index: 3;
+    filter: drop-shadow(12px 22px 12px rgba(142, 74, 104, 0.2));
+}
+
+/* ========================================================
+   2.1. BUTTERFLY ANIMATIONS (FLAPPING ONLY - NO FLOAT)
+   ======================================================== */
+
+
+.element[class*="butterfly-"] g[id*="left-wing"] {
+    animation: none;
+}
+
+.element[class*="butterfly-"] g[id*="right-wing"] {
+    transform-origin: left center; 
+    transform-box: fill-box;       
+    animation: flap-right-only 4s ease-in-out infinite; 
+}
+
+.butterfly-3 g[id*="right-wing"],
+.butterfly-6 g[id*="right-wing"] {
+    animation: none !important;
+}
+
+/* -- Keyframes -- */
+
+
+@keyframes flap-right-only {
+    0%, 100% { transform: rotateY(0deg); }
+    50% { transform: rotateY(-30deg); } 
+}
+
+
+.butterfly-1 g[id*="right-wing"] { animation-delay: 0.2s; }
+.butterfly-2 g[id*="right-wing"] { animation-delay: 1.5s; }
+.butterfly-4 g[id*="right-wing"] { animation-delay: 0.5s; }
+.butterfly-5 g[id*="right-wing"] { animation-delay: 2.2s; }
+
+
+/* 3. TYPOGRAPHY */
+.title-container {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+    width: auto;
+    min-width: 60%;
+    z-index: 10;
+    color: #EC7FA9;
+    text-shadow: 2px 2px 4px rgba(190, 89, 133, 0.2); 
+    text-align: right; 
+    padding-right: 2vw; 
+}
+
+.title-line {
+    display: inline-block;
+    font-size: 10.5vw; 
+    line-height: 0.75; 
+    white-space: nowrap;
+    position: relative;
+}
+
+.line-1 { margin-right: 2.25em; margin-left: 0; }
+
+.star-element {
+    position: absolute;
+    top: 0.075em;
+    right: -1.5em;
+    left: auto; 
+    width: 1.3em;
+    height: auto;
+    filter: drop-shadow(0px 0px 8px rgba(236, 127, 169, 0.8)); 
+}
+
+.line-2 {
+    display: block;
+    margin-top: 0.05em;
+    margin-right: 0.35em; 
+    margin-left: 0;
+}
+
+/* 4. NAVIGATION (HAMBURGER MENU) */
+.hamburger-menu {
+    position: fixed;
+    top: 3vh;
+    right: 2vw; 
+    left: auto; 
+    width: 2.5vw;
+    min-width: 40px;
+    height: 2vh;
+    min-height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: visible;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    background-color: #BE5985;
+    border-radius: 4px;
+    transition: opacity 0.3s ease; 
+}
+
+.sayuri-logo-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180%; 
+    height: 180%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sayuri-logo-hover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hamburger-menu:hover span {
+    opacity: 0;
+}
+
+.hamburger-menu:hover .sayuri-logo-hover {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.hamburger-menu.active .sayuri-logo-hover {
+    display: none;
+}
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: rgba(255, 240, 245, 0.98); 
+    box-shadow: -5px 0 20px rgba(142, 74, 104, 0.1); 
+    transition: right 0.4s ease;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-overlay.active { right: 0; }
+.menu-overlay ul { list-style: none; text-align: center; }
+.menu-overlay ul li { margin: 2vh 0; }
+.menu-overlay ul li a { 
+    text-decoration: none; 
+    font-size: 2rem;
+    color: #BE5985; 
+    font-family: 'Italianno', cursive; 
+}
+
+/* --- Laptop nhỏ --- */
+@media screen and (max-width: 1366px) {
+    .title-line { font-size: 11vw; }
+}
+
+@media screen and (max-width: 1024px) {
+    .butterfly-4 {
+        display: block !important;
+        position: absolute;
+        top: 30%; 
+        left: 28%;
+        width : 15%;
+        transform: rotate(-10deg); 
+        z-index: 5;
+    }
+
+    .hamburger-menu {
+        right: 30px !important; 
+        top: 30px;              
+    }
+
+    .title-line { font-size: 14vw; }
+    .title-container { top: 40%; padding-right: 2vw; }
+    .line-1 { margin-right: 2em; }
+    .flower-2 { width: 45%; left: 0%; top: 5%; }
+    .flower-1 { height: 70%; left: 3%; }
+    .butterfly-1 { bottom: 17%; left: -1%; width: 13%; transform: rotate(12deg); }
+    .butterfly-2 { bottom: 8%; left: 5%; width: 25%; }
+    .butterfly-3 { bottom: 20%; left: 30%; width: 15%; }
+    .butterfly-5 { top: 10%; left: 42%; width: 20%; }
+    .butterfly-6 { bottom: 10%; right: 5%; width: 15%; }
+    .star-element { width: 60%; left: 110%; }
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu { top: 25px; right: 25px; left: auto; width: 35px; height: 25px; }
+    .title-container {
+        top: 10%; left: -10%; right: 0; width: 100%;
+        text-align: center; padding-right: 0;
+    }
+    .title-line { font-size: 18vw; line-height: 0.8; }
+    .line-1 { margin-right: 0; margin-left: -20px; }
+    .line-2 { margin-right: -40%; margin-top: 10px; display: block; }
+    .star-element { width: 1.5em; right: -0.6em; top: 0.1em; }
+    .flower-2 { top: 30%; left: 15%; width: 60%; }
+    .flower-1 { left: 0%; height: 55%; bottom: 0%; width: 60%; transform: rotate(5deg); }
+    .element { filter: drop-shadow(2px 3px 6px rgba(142, 74, 104, 0.15)) !important; }
+    .butterfly-4 { 
+        filter: drop-shadow(8px 12px 10px rgba(142, 74, 104, 0.2)) !important; 
+        display: block !important; 
+        top: 52%; left: 45%; width: 25%; 
+        transform: rotate(1deg); z-index: 5; 
+    }
+    .butterfly-1 { bottom: 16%; left: 7%; width: 14%; transform: rotate(14deg); }
+    .butterfly-2 { bottom: 10%; left: 13%; width: 30%; transform: rotate(-12deg); }
+    .butterfly-3 { bottom: 15%; left: auto; right: 10%; width: 25%; transform: rotate(10deg); z-index: 4; }
+    .butterfly-5 { display: none; } 
+    .butterfly-6 { top: 30%; left: 75%; width: 25%; transform: rotate(-60deg); }
+}
+
+/* 5. MENU ITEMS (VỚI HIỆU ỨNG NẢY NHẸ & PHÁT SÁNG) */
+.menu-text-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 90; display: none;
+}
+
+.menu-item {
+    position: absolute; 
+    font-family: 'Philosopher', sans-serif; 
+    font-size: 32px;
+    color: #BE5985; 
+    text-decoration: none; 
+    text-transform: capitalize;
+    opacity: 0; 
+    transform: translate(-50%, -50%); 
+    left: 50%; 
+    pointer-events: auto;
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, text-shadow;
+}
+
+.menu-item:hover {
+    transform: translate(-50%, -65%) scale(1.05); 
+    color: #EC7FA9; 
+    text-shadow: 0 0 15px rgba(236, 127, 169, 0.6), 
+                 0 0 5px rgba(190, 89, 133, 0.4);
+}
+
+.menu-item:active {
+    transform: translate(-50%, -55%) scale(0.98);
+}
+
+.item-about { top: 43%; } 
+.item-work { top: 63%; }  
+
+@media screen and (max-width: 768px) {
+    .menu-item { font-size: 28px; }
+}
+
+/* === PERFORMANCE BOOSTER === */
+.butterfly-3, .butterfly-6, .item-about, .item-work, .title-container, .flower-1, .flower-2 {
+    will-change: transform, opacity, top, left;
+    backface-visibility: hidden; 
+    perspective: 1000px;
+}
+
+/* 6. CURSOR TRAIL (CHỈ HIỆN TRÊN DESKTOP) */
+.cursor-flower-magical {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px; 
+    height: auto;
+    pointer-events: none;
+    z-index: 999;
+    will-change: transform, opacity;
+    mix-blend-mode: multiply; 
+    filter: drop-shadow(0 0 8px rgba(236, 127, 169, 0.3));
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+    .cursor-flower-magical { 
+        display: none !important;
+    }
+}
+
+/* === INTRO OVERLAY (INITIAL LOAD ONLY) === */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    
+    background-color: #FFF; 
+    background-image: url('assets/homepage/texture 1.PNG'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    /* --------------------------------------- */
+
+    z-index: 99999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#intro-logo {
+    width: 120px; 
+    height: auto;
+    overflow: visible;
+}
+
+/* Các nét vẽ (Stroke) */
+.intro-path {
+    fill: none;
+    fill-opacity: 0;
+    stroke: #BE5985;
+    stroke-width: 1.0; 
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 1;
+}
